@@ -1,0 +1,48 @@
+#:include inputpopup.kv
+
+<MainLayout>:
+    button_l: button_l
+    button_w: button_w
+    button_s: button_s
+    button_r: button_r
+    GridLayout:
+        rows: 4
+        AnchorLayout:
+            rows: 1
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, .10
+            Button:
+                id: button_l
+                on_press: root.configpopup()
+            Label:
+                text: "Ladder Timer"
+                font_size: 60
+        AnchorLayout:
+            pos_hint: {"top": .9, "left": 1}
+            size_hint: 1, .25
+            Button:
+                id: button_w
+                on_press: root.toggle_ws()
+            Label:
+                text: root.timestring_w
+                font_size: 120
+        AnchorLayout:
+            pos_hint: {"top": .65, "left": 1}
+            size_hint: 1, .25
+            Button:
+                id: button_s
+                on_press: root.toggle_ws()
+            Label:
+                text: root.timestring_s
+                font_size: 120
+        AnchorLayout:
+            pos_hint: {"top": .4, "left": 1}
+            size_hint: 1, .40
+
+            Button:
+                id: button_r
+                on_press: root.toggle_r()
+            Label:
+                text: root.timestring_r
+                font_size: 120
+

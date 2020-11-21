@@ -1,0 +1,52 @@
+<InputPopup>:
+	information: None
+	GridLayout:
+		cols: 1
+		padding: '12dp'
+		pos_hint: {"top": 1, "left": 1}
+		size_hint_x: 0.66
+		height: self.minimum_height
+		
+		canvas:
+			Color:
+				rgb: 1, 1, 1
+			BorderImage:
+				source: root.background
+				border: root.border
+				pos: self.pos
+				size: self.size
+		Label:
+			text: root.title
+			size_hint_y: None
+			height: self.texture_size[1] + dp(32)
+			text_size: self.width - dp(16), None
+			halign: 'center'
+        
+		TextInput:
+            id: input_sets
+            hint_text: root.hint_text_sets
+			size_hint_y: None
+            height: dp(38)
+			halign: 'left'
+            multiline: False
+            on_text_validate: root.ok()
+
+		TextInput:
+            id: input_secs
+            hint_text: root.hint_text_secs
+			size_hint_y: None
+            height: dp(38)
+			halign: 'left'
+            #focus: True
+            multiline: False
+            on_text_validate: root.ok()
+
+		BoxLayout:
+			size_hint_y: None
+			height: sp(48)
+			Button:
+				text: root.cancel_text
+				on_press: root.cancel()
+			Button:
+				text: root.ok_text
+				on_press: root.ok()
